@@ -7,7 +7,7 @@ import Header from '@/components/header';
 
 export default function Home() {
   return (
-    <main className="h-screen flex flex-col items-center justify-center gap-8">
+    <main className="min-h-screen w-full flex items-center justify-center flex-col gap-8 p-4">
       <Header
         icon={logoImage}
         title="Ignite Lab"

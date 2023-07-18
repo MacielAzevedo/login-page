@@ -4,9 +4,9 @@ import { ReactNode } from 'react';
 const variants = cva([], {
   variants: {
     size: {
-      xs: 'text-lg',
-      sm: 'text-xl',
-      md: 'text-xl',
+      xs: 'text-sm',
+      sm: 'text-base',
+      md: 'text-lg',
       lg: 'text-[2rem]',
     },
   },

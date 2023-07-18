@@ -38,7 +38,7 @@ export default function Form() {
 
   return (
     <form
-      className="w-[400px] flex flex-col gap-2"
+      className="max-w-[400px] w-full flex flex-col gap-2"
       onSubmit={handleSubmit(handleLoginSubmit)}
     >
       <Input
@@ -65,7 +65,7 @@ export default function Form() {
         {errors.password && <FormError>{errors.password.message}</FormError>}
       </div>
 
-      <div className="flex items-center gap-[10px] my-8">
+      <div className="flex items-center gap-[10px] my-4">
         <Checkbox.Root
           id="ci"
           className="bg-gray-800 flex justify-center items-center w-6 h-6"

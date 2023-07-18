@@ -3,7 +3,7 @@ import { ButtonHTMLAttributes, forwardRef, ReactNode } from 'react';
 
 const variants = cva(
   [
-    'w-[400px]',
+    'w-full',
     'flex',
     'justify-center',
     'items-center',
