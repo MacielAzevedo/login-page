@@ -11,7 +11,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ title, content, icon, ...props }, ref) => {
     return (
       <label className="w-full flex flex-col gap-[10px]">
-        <Heading>{title}</Heading>
+        <Heading size={'lg'}>{title}</Heading>
         <div className="inline-flex items-center px-4 py-3 gap-3 rounded text-gray-100 bg-gray-800">
           {icon}
           <input

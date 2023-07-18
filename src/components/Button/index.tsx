@@ -13,13 +13,18 @@ const variants = cva(
     'py-[10px]',
     'text-black',
     'rounded',
+    'transition-colors',
   ],
   {
     variants: {
       variant: {
-        PRIMARY: ['bg-cyan-500', 'hover:bg-cyan-300', 'transition-colors'],
-        SECONDARY: ['bg-green-500', 'hover:bg-green-300', 'transition-colors'],
+        PRIMARY: ['bg-cyan-500', 'hover:bg-cyan-300'],
+        SECONDARY: ['bg-green-500', 'hover:bg-green-300'],
+        TERTIARY: ['bg-red-500', 'hover:bg-red-300'],
       },
+    },
+    defaultVariants: {
+      variant: 'PRIMARY',
     },
   }
 );
