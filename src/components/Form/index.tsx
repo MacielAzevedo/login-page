@@ -10,16 +10,14 @@ import Input from './components/Input';
 const LoginFormSchema = z.object({
   email: z
     .string()
-    .min(5, { message: 'Digite um e-mail válido!' })
-    .regex(/^[a-z0-9.]+@[a-z]+\.[a-z]+(\.[a-z]+)?$/i)
+    .regex(/^[a-z0-9.]+@[a-z]+\.[a-z]+(\.[a-z]+)?$/i, {
+      message: 'Digite um e-mail válido!',
+    })
     .transform((email) => email.toLowerCase()),
 
-  password: z
-    .string()
-    .min(8, {
-      message: 'Mínimo de oito caracteres, pelo menos uma letra e um número',
-    })
-    .regex(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/i),
+  password: z.string().regex(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/i, {
+    message: 'Mínimo de oito caracteres, pelo menos uma letra e um número',
+  }),
 });
 
 type LoginFormData = z.infer<typeof LoginFormSchema>;
@@ -33,8 +31,9 @@ export default function Form() {
     resolver: zodResolver(LoginFormSchema),
   });
 
-  async function handleLoginSubmit(data: LoginFormData) {
+  function handleLoginSubmit(data: LoginFormData) {
     console.log(data);
+    alert('Login efetuado com sucesso!');
   }
 
   return (
@@ -48,6 +47,7 @@ export default function Form() {
         content="usuario@email.com"
         icon={<EnvelopeSimple size={24} color="#7C7C8A" />}
         {...register('email')}
+        autoComplete="off"
       />
       <div className="h-6">
         {errors.email && <FormError>{errors.email.message}</FormError>}
@@ -59,13 +59,17 @@ export default function Form() {
         content="password"
         icon={<Lock size={24} color="#7C7C8A" />}
         {...register('password')}
+        autoComplete="off"
       />
       <div className="h-6">
         {errors.password && <FormError>{errors.password.message}</FormError>}
       </div>
 
       <div className="flex items-center gap-[10px] my-8">
-        <Checkbox.Root className="bg-gray-800 flex justify-center items-center w-6 h-6">
+        <Checkbox.Root
+          id="ci"
+          className="bg-gray-800 flex justify-center items-center w-6 h-6"
+        >
           <Checkbox.Indicator className="text-cyan-500 flex items-center">
             <Check size={24} />
           </Checkbox.Indicator>
